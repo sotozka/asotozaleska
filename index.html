@@ -16,9 +16,11 @@
         body {
             background-color: #15110f;
             color: #E8E2D5;
+            background-image: radial-gradient(rgba(200, 154, 61, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
             font-family: 'Instrument Sans', sans-serif;
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.7;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -38,7 +40,7 @@
             width: 120px;
             height: 120px;
             object-fit: cover;
-            border-radius: 0;
+            border: 0.5px solid rgba(200, 154, 61, 0.3);
             filter: brightness(0.85) saturate(0.7) sepia(0.15);
             margin-bottom: 2rem;
         }
@@ -80,6 +82,12 @@
             margin-bottom: 2.5rem;
             max-width: 480px;
         }
+        
+        /*Highlight colour — a tiny secret*/
+        ::selection {
+    background-color: #C89A3D;
+    color: #15110f;
+}
 
         /* Link styling — weathered silver to brass on hover */
         .link-list {
@@ -87,22 +95,28 @@
             margin-bottom: 3rem;
         }
 
-        .link-list li {
-            margin-bottom: 1.25rem;
-        }
+	.link-list a {
+	    font-size: 16px;
+	    text-decoration: none;
+	    color: #7A96B8;  /* weathered silver */
+	    transition: color 0.25s ease;
+	    display: inline-block;
+	}
 
-        .link-list a {
-            font-size: 16px;
-            text-decoration: none;
-            color: #7A96B8;  /* weathered silver */
-            transition: color 0.25s ease;
-            display: inline-block;
-        }
+	.link-list a:hover {
+	    color: #C89A3D;  /* brass */
+	    cursor: crosshair;
+	}
 
-        .link-list a:hover {
-            color: #C89A3D;  /* brass */
-            cursor: crosshair;
-        }
+	.link-list a::after {
+	    content: " →";
+	    transition: transform 0.2s ease;
+	    display: inline-block;
+	}
+
+	.link-list a:hover::after {
+	    transform: translateX(2px);
+	}
 
         /* Metadata — receded, almost archival */
         .metadata {
@@ -130,8 +144,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Replace this with your actual photo -->
-        <img class="portrait" src="20211227_143919.jpg" alt="Ana Soto Zaleska">
+        <img class="portrait" src="20211227_143919.jpg" alt="Portrait of Ana Soto Zaleska, Zaragoza">
         
         <h1>Ana Soto Zaleska</h1>
         <div class="brass-rule"></div>
@@ -139,12 +152,12 @@
         <div class="brass-rule"></div>
         
         <div class="tagline">
-            Writing about data centres, power, and the case for democratic accountability from Zaragoza, Spain
+            Writing about data centres, power, and the case for democratic accountability from Zaragoza, Spain.
         </div>
         
         <ul class="link-list">
-            <li><a href="https://asotozaleska.substack.com" target="_blank" rel="noopener noreferrer">Substack →</a></li>
-            <li><a href="https://linkedin.com/in/asotozaleska" target="_blank" rel="noopener noreferrer">LinkedIn →</a></li>
+            <li><a href="https://asotozaleska.substack.com" target="_blank" rel="noopener noreferrer">Substack </a></li>
+            <li><a href="https://linkedin.com/in/asotozaleska" target="_blank" rel="noopener noreferrer">LinkedIn </a></li>
         </ul>
         
         <div class="metadata">
