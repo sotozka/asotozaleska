@@ -258,7 +258,37 @@
         </div>
     </div>
 
-    <button class="mode-toggle" id="darkModeToggle">☀️&nbsp;Light&nbsp;·&nbsp;🌙&nbsp;Dark</button>
+    <!-- Button (just one icon + text) -->
+<button class="mode-toggle" id="darkModeToggle">☀️ Light</button>
+
+<script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    
+    function updateButtonText() {
+        if (document.body.classList.contains('light-mode')) {
+            toggleButton.textContent = '🌙 Dark';
+        } else {
+            toggleButton.textContent = '☀️ Light';
+        }
+    }
+    
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+    }
+    updateButtonText();
+    
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+        } else {
+            localStorage.setItem('theme', 'dark');
+        }
+        
+        updateButtonText();
+    });
+</script>
 
     <script>
         const toggleButton = document.getElementById('darkModeToggle');
